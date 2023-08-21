@@ -1,0 +1,42 @@
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    overflow: hidden;
+}
+.input-linha{
+    border: none;
+    border-bottom: 1px solid #0667E8;
+    outline: none;
+    background-color: transparent;
+    font-size: 10px;
+}
+.centro{
+    justify-content: center;
+    display: flex;
+}
+.justify{
+    justify-items: center;
+    align-items: center;
+    display: flex;
+}
+.linha{
+    flex-direction: column;
+}
+.nomes{
+    width: 150px;
+    height: 20px;
+    font-size: 10px;
+    background-color:whitesmoke;
+    border: 1px 1px;
+    border-style: solid;
+    border-color: #0667E8;
+    margin-top: 4px;
+    flex-direction: row;
+}
