@@ -27,28 +27,34 @@ function PegarNome(){
         $('.batata').empty();
 
         for(var i = 0; i < result.length; i++){
-            $('.batata').prepend('<div name="'+ result[i].matricula +'" class="nomes justify"><span style="width: 130px;padding-left: 2px;">'+ result[i].nome +'</span><img src="excluir_icon.png" width="8px" onclick="excluirNome()"></div>')
-            console.log(result[i].id);
+            $('.batata').prepend('<div class="nomes justify"><span style="width: 130px;padding-left: 2px;">'+ result[i].nome +'</span><img id="'+ result[i].matricula +'" src="excluir_icon.png" width="8px" style="padding-left: 5px;" onclick="excluir()"></div>')
         }
     })
 };
 
-function excluirNome(imgElement) {
-    var matriculaParaExcluir = $(imgElement).data('matricula');
-    
+function excluir(){
+$('img').click(function(e){
+    e.preventDefault();
+
+    // Obtenha o ID da imagem clicada
+    var imgId = $(this).attr('id');
+    console.log(imgId);
+
     $.ajax({
-        url: 'excluir.php', // Substitua 'excluir.php' pelo URL de sua API de exclusão
+        url: 'excluir.php',
         method: 'POST',
-        data: { matricula: matriculaParaExcluir },
+        data: { id: imgId },
         dataType: 'json'
-    }).done(function(result){
-        if (result.success) {
-            // Remova a div com a mesma matrícula
-            $('.batata div[name="'+matriculaParaExcluir+'"]').remove();
-        } else {
-            alert('Erro ao excluir o registro.');
-        }
+    }).done(function(){
+        PegarNome();
+    }).fail(function(jqXHR, textStatus, errorThrown){
+        console.log("Erro na requisição Ajax: " + textStatus + " - " + errorThrown);
     });
-}
+})}
+    
+
+
+
+
 
 PegarNome();

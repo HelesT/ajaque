@@ -40,3 +40,14 @@ body{
     margin-top: 4px;
     flex-direction: row;
 }
+.input-imagem {
+    width: 12px;
+    height: 12px;
+    background-color: transparent;
+    background-image: url('excluir_icon.png'); /* Caminho para a imagem de fundo */
+    background-size: 8px 8px; /* Tamanho da imagem de fundo */
+    background-position:center; /* Posição da imagem de fundo */
+    background-repeat: no-repeat; /* Evita repetir a imagem */
+    border: none;
+    cursor: pointer;
+}
