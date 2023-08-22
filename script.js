@@ -11,7 +11,6 @@ $('#form1').submit(function(e){
         dataType: 'json'
     }).done(function(result){
         $('#nome').val('');
-        console.log(result);
         PegarNome();
     })
 });
@@ -22,7 +21,6 @@ function PegarNome(){
         method: 'GET',
         dataType: 'json'
     }).done(function(result){
-        console.log(result);
 
         $('.batata').empty();
 
@@ -38,7 +36,6 @@ $('img').click(function(e){
 
     // Obtenha o ID da imagem clicada
     var imgId = $(this).attr('id');
-    console.log(imgId);
 
     $.ajax({
         url: 'excluir.php',
@@ -48,7 +45,7 @@ $('img').click(function(e){
     }).done(function(){
         PegarNome();
     }).fail(function(jqXHR, textStatus, errorThrown){
-        console.log("Erro na requisição Ajax: " + textStatus + " - " + errorThrown);
+        PegarNome();;
     });
 })}
     
